@@ -1,0 +1,26 @@
+* {
+  font-family: Helvetica, Arial;
+}
+h1 {
+    font-size: 32px;
+}
+h1:hover {
+  color:red;
+}
+p {
+    color: orange;
+    text-align: justify;
+     text-indent: 2em;
+    line-height: 1.2 em;
+}
+*[data] {
+  color:red;
+  text-shadow: 2px 2px 1px red;
+}
+*[data~=d] {
+  color:grey;
+  font-style: italic;
+  font-weight: light;
+  font-size: 0.9em;
+  text-decoration: underline red;
+}
