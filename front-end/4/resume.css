@@ -1,0 +1,53 @@
+* {
+  font-family: Helvetica, Arial;
+}
+body {
+  background: grey url('http://www.w3school.com.cn/ui2017/compatible_safari.png');
+  background-origin: content-box;
+  background-attachment: scroll;
+  background-position: top center;
+}
+h1 {
+    font-size: 32px;
+}
+h1:hover {
+  color:red;
+}
+p {
+    color: orange;
+    text-align: justify;
+     text-indent: 2em;
+    line-height: 1.2 em;
+}
+dt {
+  display: inline-block;
+  margin: 5px;
+  border: inset;
+}
+dd {
+  display: inline-block;
+  padding: 10px;
+  border: inset;
+}
+a:hover {
+  color: red;
+}
+ul {
+  list-style-type: cjk-ideographic;
+  list-style-postion: outside;
+}
+
+*[project] {
+  color:grey;
+  text-shadow: 1px 1px 1px red;
+  text-decoration: underline;
+  font-size: 1em;
+}
+*[project] dd{
+  color:grey;
+  text-decoration: underline red;
+  
+  font-style: italic;
+  font-weight: light;
+  font-size: 0.9em;
+}
