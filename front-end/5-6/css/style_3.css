@@ -1,0 +1,58 @@
+* {
+    font-family: Helvetica, Arial;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+#headline {
+    display: block;
+    padding: 20px 10px;
+    background-color: grey;
+}
+#headline > h1 {
+    font-size: x-large;
+    color: white;
+    margin: 5px 10px 5px 50px;
+}
+article .content{
+    padding: 10px 0 0 130px;
+    margin: 0;
+}
+article > section {
+    height: 131px;
+    border: floralwhite;
+    border-style: none solid solid none;
+}
+article header {
+    float: left;
+    font-size: 1.3em;
+    font-weight: bold;
+    background-color: darkgrey;
+    width: 100px;
+    height: 130px;
+    line-height: 130px;
+    text-align: center;
+}
+.inline dt, .inline dd {
+    display: inline;
+}
+.inline dt {
+    font-weight: bold;
+    margin-right: 5px
+}
+.inline dd {
+    margin: auto 30px auto 10px;
+}
+.block dt, .block dd {
+    display: block;
+}
+.block dt {
+    font-weight: bold;
+}
+.block dd {
+    margin: 3px 0 15px 0;
+}
+.clearfix {
+    clear: both;
+}

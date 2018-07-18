@@ -1,0 +1,49 @@
+* {
+    font-family: Helvetica, Arial;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+#headline {
+    float: left;
+    padding: 20px 10px;
+    height: 1000px;
+    width: 170px;
+    background-color: deepskyblue;
+}
+#headline > h1 {
+    font-size: xx-large;
+    color: white;
+    margin: 10px 10px 10px 50px;
+}
+article {
+    padding: 10px 15px 10px 220px;
+}
+article header {
+    font-size: 1.6em;
+    font-weight: bold;
+}
+article
+.inline dt, .inline dd {
+    display: inline;
+}
+.inline dt {
+    font-weight: bold;
+    margin-right: 5px
+}
+.inline dd {
+    margin: auto 30px auto 10px;
+}
+.block dt, .block dd {
+    display: block;
+}
+.block dt {
+    font-weight: bold;
+}
+.block dd {
+   margin: 3px 0 15px 0;
+}
+.clearfix {
+    clear: both;
+}
