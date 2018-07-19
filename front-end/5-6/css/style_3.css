@@ -15,15 +15,6 @@ body {
     color: white;
     margin: 5px 10px 5px 50px;
 }
-article .content{
-    padding: 10px 0 0 130px;
-    margin: 0;
-}
-article > section {
-    height: 131px;
-    border: floralwhite;
-    border-style: none solid solid none;
-}
 article header {
     float: left;
     font-size: 1.3em;
@@ -33,6 +24,19 @@ article header {
     height: 130px;
     line-height: 130px;
     text-align: center;
+}
+article .content{
+    display: inline-block;
+    padding: 10px 0 0 30px;
+    margin: 0;
+}
+article .content:after{
+    clear: both;
+}
+article > section {
+    height: 131px;
+    border: floralwhite;
+    border-style: none solid solid none;
 }
 .inline dt, .inline dd {
     display: inline;
