@@ -15,8 +15,17 @@ body {
     color: white;
     margin: 5px 10px 5px 50px;
 }
+article > section {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 131px;
+    border: floralwhite;
+    border-style: none solid solid none;
+}
 article header {
-    float: left;
+    display: inline-block;
+    position: absolute;
     font-size: 1.3em;
     font-weight: bold;
     background-color: darkgrey;
@@ -27,16 +36,9 @@ article header {
 }
 article .content{
     display: inline-block;
-    padding: 10px 0 0 30px;
+    vertical-align: top;
+    padding: 10px 0 0 130px;
     margin: 0;
-}
-article .content:after{
-    clear: both;
-}
-article > section {
-    height: 131px;
-    border: floralwhite;
-    border-style: none solid solid none;
 }
 .inline dt, .inline dd {
     display: inline;
@@ -56,7 +58,4 @@ article > section {
 }
 .block dd {
     margin: 3px 0 15px 0;
-}
-.clearfix {
-    clear: both;
 }
