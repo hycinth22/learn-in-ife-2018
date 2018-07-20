@@ -1,0 +1,12 @@
+#left, #right{
+    display: inline-block;
+    position: absolute;
+}
+#left {
+    width: 30%;
+    left: 0;
+}
+#right {
+    width: 70%;
+    right: 0;
+}

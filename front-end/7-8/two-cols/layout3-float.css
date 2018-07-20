@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+#left {
+    float: left;
+    width: calc(100% - 200px);
+}
+#right {
+    overflow: auto; // BFC
+    width: 200px;
+}
