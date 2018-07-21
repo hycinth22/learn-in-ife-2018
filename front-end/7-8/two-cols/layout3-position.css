@@ -1,12 +1,13 @@
-* {
-    box-sizing: border-box;
+body {
+    font-size: 0; /* 消除两栏之间空格多占据的空间 */
 }
 #left, #right {
     display: inline-block;
     vertical-align: top;
+    font-size: 14px;
 }
 #left {
-    width: calc(100% - 205px); /* don't know why additional 5px? */
+    width: calc(100% - 200px);
 }
 #right {
     width: 200px;

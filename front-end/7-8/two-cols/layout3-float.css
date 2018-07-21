@@ -6,6 +6,6 @@
     width: calc(100% - 200px);
 }
 #right {
-    overflow: auto; // BFC
+    overflow: auto; /* BFC */
     width: 200px;
 }
