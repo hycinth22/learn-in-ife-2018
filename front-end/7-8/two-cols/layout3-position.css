@@ -3,6 +3,7 @@ body {
 }
 #left, #right {
     display: inline-block;
+    box-sizing: border-box;
     vertical-align: top;
     font-size: 14px;
 }
