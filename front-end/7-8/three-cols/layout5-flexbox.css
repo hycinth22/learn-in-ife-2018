@@ -1,0 +1,12 @@
+body {
+    display: flex;
+}
+#left {
+    flex: 0 200px;
+}
+#right {
+    flex: 1;
+}
+#mid {
+    flex: 0 1000px;
+}

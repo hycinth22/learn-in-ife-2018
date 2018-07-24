@@ -1,0 +1,11 @@
+#left, #right, #mid {
+    overflow: auto;
+}
+#left {
+    float: left;
+    width: 200px;
+}
+#right {
+    float: right;
+    width: 200px;
+}

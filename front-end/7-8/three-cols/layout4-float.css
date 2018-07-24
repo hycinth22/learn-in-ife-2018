@@ -1,0 +1,12 @@
+#left {
+    float: left;
+    width: 200px;
+}
+#mid {
+    float: left;
+    width: calc(100% - 400px);
+}
+#right {
+    float: right;
+    width: 200px;
+}
