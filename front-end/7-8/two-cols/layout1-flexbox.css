@@ -1,0 +1,9 @@
+body {
+    display: flex;
+}
+#left {
+    flex: 3;
+}
+#right {
+    flex: 7;
+}
