@@ -1,11 +1,16 @@
 @font-face {
     font-family: "Montserrat";
-    src: url("fonts/Montserrat-Regular.ttf");
+    src: url("fonts/Montserrat-Regular.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Montserrat ExtraLight";
-    src: url("fonts/Montserrat-ExtraLight.ttf");
+    src: url("fonts/Montserrat-ExtraLight.ttf") format("truetype");
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 input {
@@ -32,13 +37,23 @@ button {
     color: black;
 }
 
-#page-header, section {
+.container > * {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+    max-width: 1060px;
+}
+
+#page-header, section, #page-footer {
     font-family: "Montserrat ExtraLight", serif;
     text-align: center;
-    padding: 30px 15%;
+    padding: 30px 0;
     font-size: 14px;
     border: 1px solid rgb(238, 238, 238);
-    min-width: 1000px;
+    border-left: none;
+    border-right: none;
+    background-origin: border-box;
+    background-clip: border-box;
 }
 
 section header > h1 {
@@ -53,16 +68,15 @@ section header > h2 {
 }
 
 #page-header {
-    background: rgba(97, 97, 97, 0.65) url("images/header.png");
+    background-image: url("images/header.png");
     background-size: cover;
     color: white;
-    height: 650px;
-    padding: 150px 0;
+    min-height: 650px;
 }
 
 #page-header div {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 1100px;
 }
 
 #page-header h1 {
@@ -78,9 +92,13 @@ section header > h2 {
 }
 
 #page-header form {
+    display: inline-block;
     border: 1px solid rgb(87, 85, 81);
     margin: 80px 0;
     padding: 30px 0;
+    min-width: 600px;
+    max-width: 1100px;
+    width: 80%;
 }
 
 #page-header form h3 {
@@ -95,51 +113,78 @@ section header > h2 {
     font-size: 0.8em;
 }
 
-#feature {
-    padding-bottom: 100px;
+#features {
+    padding-bottom: 100px;;
 }
 
-.features {
-    display: grid;
+.feature-groups {
+    display: inline-grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 60px;
-    padding: 0 100px;
 }
 
-.features p {
-    margin: 0;
-    text-align: left;
-    overflow: auto;
-    line-height: 160%;
+.feature-group {
+    display: grid;
+    grid-template-rows: 50px 50px 50px;
+    grid-template-columns: 100px 100px 100px;
+
 }
 
-.features img {
+.feature-group img {
+    grid-row: 1 / 2;
+    grid-column: 1;
+    display: flex;
     float: left;
     padding: 30px;
 }
 
-.features .feature-name {
+.feature-group p {
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+    line-height: 160%;
+}
+
+.feature-group .feature-name {
+    grid-row: 1;
+    grid-column: 2 / 4;
     margin-top: 30px;
     font-family: "Montserrat", serif;
 }
 
-.features .feature-intro {
+.feature-group .feature-intro {
+    grid-row: 2;
+    grid-column: 2 / 4;
     line-height: 170%;
 }
 
-#call-to-action {
-    position: relative;
-    display: flex;
-    background: url("images/call.png");
+#call-to-action-container {
+    background-image: url("images/call.png");
     overflow: hidden;
-    height: 604px;
-    text-align: left;
 }
 
-#call-to-action > div {
-    position: relative;
+#call-to-action {
+    display: flex;
+    text-align: left;
+    min-height: 654px;
+}
+
+#call-to-action-text {
     margin: 130px 400px 50px 90px;
+    z-index: 1;
+}
+
+#call-to-action-image {
+    position: absolute;
+    right: 0;
+    width: 585px;
+    height: 542px;
+    z-index: 1;
+    margin-right: 0;
+    padding: 30px 0 30px 50px;
+    border: 1px solid rgb(164, 165, 167);
+    border-radius: 30px 0 0 30px;
 }
 
 #call-to-action h1 {
@@ -154,12 +199,10 @@ section header > h2 {
     width: 430px;
 }
 
-#call-to-action > img {
-    position: absolute;
-    right: -100px;
-    width: 585px;
-    height: 542px;
-    overflow: hidden;
+@media screen and (max-width: 1400px) {
+    #call-to-action-image {
+        display: none;
+    }
 }
 
 #call-to-action > button {
@@ -168,18 +211,6 @@ section header > h2 {
     width: 585px;
     height: 542px;
     overflow: hidden;
-}
-
-#call-to-action #screen {
-    float: right;
-    border: 1px solid rgb(164, 165, 167);
-    border-radius: 30px;
-    padding: 30px 50px;
-}
-
-#call-to-action #screen + * {
-    overflow: auto;
-    clear: both;
 }
 
 #crews {
@@ -194,7 +225,7 @@ section header > h2 {
 }
 
 #crews img {
-    width: 100%;
+    width: 320px;
     height: 100%;
 }
 
@@ -251,16 +282,20 @@ section header > h2 {
     visibility: visible;
 }
 
-#contact form {
-    border: 1px solid rgb(231, 231, 231);
-}
-
 #contact {
     display: flex;
     flex-direction: row-reverse;
+    width: 70%;
+    max-width: 1060px;
+    margin: 0 auto;
 }
 
-#contact > #tell-form {
+#contact form {
+    display: inline-block;
+    border: 1px solid rgb(231, 231, 231);
+}
+
+#contact #tell-form {
     flex: 3;
 }
 
@@ -323,12 +358,31 @@ section header > h2 {
     vertical-align: middle;
 }
 
+#page-footer-container {
+
+    background-color: black;
+}
+
+@media screen and (min-width: 840px) {
+    #page-footer-container {
+        padding-left: 250px;
+    }
+}
+
 #page-footer {
-    background: black;
-    color: grey;
+    margin: 0;
+    padding: 20px 0;
+    width: 100%;
+    min-width: 550px;
+    max-width: 1400px;
+    border-bottom: none;
+
     display: flex;
     justify-content: center;
-    padding: 20px 250px;
+    font-family: "Montserrat", serif;
+    font-size: 16px;
+    color: grey;
+    text-align: left;
 }
 
 #page-footer * {
