@@ -1,0 +1,363 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Montserrat ExtraLight";
+    src: url("fonts/Montserrat-ExtraLight.ttf");
+}
+
+input {
+    border: 1px solid rgb(87, 85, 81);
+    background: transparent;
+    color: inherit;
+    height: 3em;
+    margin: 3px 5px;
+}
+
+button {
+    border: 1px solid rgb(110, 120, 110);
+    border-radius: 3px;
+    padding: 15px 25px;
+    margin: 10px 15px;
+    font-weight: bold;
+    background: transparent;
+    color: white;
+    text-transform: uppercase;
+}
+
+.button-primary {
+    background: white;
+    color: black;
+}
+
+#page-header, section {
+    font-family: "Montserrat ExtraLight", serif;
+    text-align: center;
+    padding: 30px 15%;
+    font-size: 14px;
+    border: 1px solid rgb(238, 238, 238);
+    min-width: 1000px;
+}
+
+section header > h1 {
+    font-size: 2em;
+    margin: .67em 70px;
+}
+
+section header > h2 {
+    font-size: 1.3em;
+    color: rgba(20, 20, 20, 0.5);
+    margin: .67em 70px;
+}
+
+#page-header {
+    background: rgba(97, 97, 97, 0.65) url("images/header.png");
+    background-size: cover;
+    color: white;
+    height: 650px;
+    padding: 150px 0;
+}
+
+#page-header div {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+#page-header h1 {
+    font-size: 5.5em;
+    line-height: 150%;
+}
+
+#page-header h2 {
+    font-size: 1.2em;
+    font-weight: lighter;
+    line-height: 140%;
+    margin: 0 70px;
+}
+
+#page-header form {
+    border: 1px solid rgb(87, 85, 81);
+    margin: 80px 0;
+    padding: 30px 0;
+}
+
+#page-header form h3 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#page-header form h4 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: grey;
+    font-size: 0.8em;
+}
+
+#feature {
+    padding-bottom: 100px;
+}
+
+.features {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 60px;
+    padding: 0 100px;
+}
+
+.features p {
+    margin: 0;
+    text-align: left;
+    overflow: auto;
+    line-height: 160%;
+}
+
+.features img {
+    float: left;
+    padding: 30px;
+}
+
+.features .feature-name {
+    margin-top: 30px;
+    font-family: "Montserrat", serif;
+}
+
+.features .feature-intro {
+    line-height: 170%;
+}
+
+#call-to-action {
+    position: relative;
+    display: flex;
+    background: url("images/call.png");
+    overflow: hidden;
+    height: 604px;
+    text-align: left;
+}
+
+#call-to-action > div {
+    position: relative;
+    margin: 130px 400px 50px 90px;
+}
+
+#call-to-action h1 {
+    margin-left: 10px;
+    color: white;
+    width: 260px;
+}
+
+#call-to-action h2 {
+    margin-left: 10px;
+    color: rgb(189, 186, 189);
+    width: 430px;
+}
+
+#call-to-action > img {
+    position: absolute;
+    right: -100px;
+    width: 585px;
+    height: 542px;
+    overflow: hidden;
+}
+
+#call-to-action > button {
+    position: absolute;
+    right: -280px;
+    width: 585px;
+    height: 542px;
+    overflow: hidden;
+}
+
+#call-to-action #screen {
+    float: right;
+    border: 1px solid rgb(164, 165, 167);
+    border-radius: 30px;
+    padding: 30px 50px;
+}
+
+#call-to-action #screen + * {
+    overflow: auto;
+    clear: both;
+}
+
+#crews {
+    display: grid;
+    grid-template-columns: repeat(2, 320px);
+    grid-template-rows: repeat(2, 230px);
+    grid-gap: 20px;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#crews img {
+    width: 100%;
+    height: 100%;
+}
+
+.crew {
+    position: relative;
+}
+
+.crew .detail {
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 85px repeat(3, 56px) 85px;
+    grid-template-rows: repeat(6, 40px);
+}
+
+.crew .detail h3 {
+    grid-row: 2;
+    grid-column: 2 / 5;
+    color: white;
+}
+
+.crew .detail h4 {
+    grid-row: 3;
+    grid-column: 2 / 5;
+    color: grey;
+}
+
+.crew .detail button {
+    grid-row: 5;
+    margin: 0;
+    padding: 1px;
+    border: 1px solid white;
+    border-radius: 45px;
+    background: transparent;
+    color: white;
+}
+
+.crew .detail button:nth-of-type(1) {
+    grid-column: 2;
+}
+
+.crew .detail button:nth-of-type(2) {
+    grid-column: 3;
+}
+
+.crew .detail button:nth-of-type(3) {
+    grid-column: 4;
+}
+
+.crew[active] .detail {
+    visibility: visible;
+}
+
+#contact form {
+    border: 1px solid rgb(231, 231, 231);
+}
+
+#contact {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#contact > #tell-form {
+    flex: 3;
+}
+
+#contact > #info {
+    flex: 5;
+}
+
+#tell-form > .headline {
+    font-family: "Montserrat", serif;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    font-weight: lighter;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+#tell-form {
+    padding: 20px 50px;
+}
+
+#tell-form input, #tell-form textarea {
+    border: inherit;
+    display: block;
+    width: 100%;
+    margin-bottom: 30px;
+    margin-left: 0;
+    padding: 4px 15px;
+}
+
+#tell-form textarea {
+    height: 5em;
+}
+
+#tell-form button {
+    margin: 0;
+    background: black;
+    color: white;
+    width: 100%;
+}
+
+#info {
+    margin: 50px 60px;
+    text-align: left;
+    overflow: auto;
+}
+
+#info .contact-info {
+    font-family: "Montserrat", serif;
+    line-height: 150%;
+    margin: 10px 70px;
+}
+
+#info .contact-info img {
+    padding: 5px;
+    vertical-align: middle;
+}
+
+#info .contact-info p, #info .contact-info span {
+    display: inline;
+    vertical-align: middle;
+}
+
+#page-footer {
+    background: black;
+    color: grey;
+    display: flex;
+    justify-content: center;
+    padding: 20px 250px;
+}
+
+#page-footer * {
+    line-height: 250%;
+}
+
+#page-footer div {
+    flex: 1;
+    margin: 0 10px;
+}
+
+#page-footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#page-footer a:hover {
+    text-decoration: underline;
+}
+
+#page-footer .title {
+    color: white;
+    margin: 3px 0;
+}
+
+#page-footer a {
+    display: block;
+}
+
+#page-footer .social-icons li {
+    display: inline-block;
+}
