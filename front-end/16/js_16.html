@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+<body>
+<input id="first-number" type="number" value="0" placeholder="第一个数字">
+<input id="second-number" type="number" value="0" placeholder="第二个数字">
+<button id="add-btn">加</button>
+<button id="minus-btn">减</button>
+<button id="times-btn">乘</button>
+<button id="divide-btn">除</button>
+<p id="result">运算结果</p>
+<button id="hello">和你打招呼</button>
+<script>
+    function calc(opFunc) {
+        const first = parseInt(document.getElementById("first-number").value);
+        const second = parseInt(document.getElementById("second-number").value);
+        const result = opFunc(first, second);
+        document.getElementById("result").innerText = result.toString();
+    }
+
+    document.getElementById("add-btn").onclick = function () {
+        calc(function (a, b) {
+            return a + b;
+        });
+    };
+    document.getElementById("minus-btn").onclick = function () {
+        calc(function (a, b) {
+            return a - b;
+        });
+    };
+    document.getElementById("times-btn").onclick = function () {
+        calc(function (a, b) {
+            return a * b;
+        });
+    };
+    document.getElementById("divide-btn").onclick = function () {
+        calc(function (a, b) {
+            return a / b;
+        });
+    };
+    document.getElementById("hello").onclick = function () {
+        console.log("ok");
+    };
+
+</script>
+</body>
+</html>
