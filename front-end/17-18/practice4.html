@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function containX(number, x) {
+        for (let n = number; n > 0; n = Math.floor(n / 10)) {
+            if (n % 10 === x) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    for (let i = 0; i <= 100; i++) {
+        if (i % 3 === 0 || containX(i, 3)) {
+            console.log("PA");
+        } else {
+            console.log(i);
+        }
+    }
+</script>
+</body>
+</html>

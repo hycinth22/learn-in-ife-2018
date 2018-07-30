@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="times-table">
+
+</table>
+<script>
+    const cont = document.getElementById("times-table");
+    for (let n = 1; n <= 9; n++) {
+        let row = document.createElement("tr");
+        for (let m = 1; m <= n; m++) {
+            console.log(n + "*" + m + "=" + n * m);
+            let cell = document.createElement("th");
+            cell.innerText = n + "*" + m + "=" + n * m;
+            row.appendChild(cell);
+        }
+        cont.appendChild(row);
+    }
+</script>
+</body>
+</html>
