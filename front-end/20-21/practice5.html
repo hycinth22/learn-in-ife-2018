@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+<button id="fade-btn">淡出</button>
+<script>
+    let obj = document.getElementById("fade-obj");
+    let btn = document.getElementById("fade-btn");
+    obj.style.opacity = "1";
+    document.getElementById("fade-btn").addEventListener("click", function () {
+        let mode = btn.innerHTML === "淡出" ? 0 : 1;
+        btn.disabled = true;
+        let id = setInterval(function () {
+            console.log(obj.style.opacity);
+            if (mode === 0 && obj.style.opacity > 0) {
+                obj.style.opacity = parseFloat(obj.style.opacity) - 0.05;
+            } else if (mode === 1 && obj.style.opacity < 1) {
+                obj.style.opacity = parseFloat(obj.style.opacity) + 0.05;
+            } else {
+                clearInterval(id);
+                btn.innerHTML = mode === 0 ? "淡入" : "淡出";
+                btn.disabled = false;
+            }
+        }, 50);
+    })
+    ;
+</script>
+</body>
+</html>

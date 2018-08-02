@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="name" type="text">
+<button id="submit-btn">Submit</button>
+<script>
+    document.getElementById("submit-btn").addEventListener("click", function () {
+        console.log(document.getElementById("name").value)
+    });
+    document.getElementById("name").addEventListener("keydown", function (event) {
+        let key = event.keyCode | event.which;
+        if (key === 13) {
+            // Enter
+            document.getElementById("submit-btn").click();
+        } else if (key === 27) // ESC
+            event.target.value = "";
+    });
+</script>
+</body>
+</html>
