@@ -69,8 +69,8 @@
     function getActiveLinkContent(sectionId) {
         // 返回某个section下，class为active的链接中包含的文字内容
         let links = document.getElementById(sectionId).getElementsByTagName("A");
-        for (link of links) {
-            if (link.className = "active") {
+        for (let link of links) {
+            if (link.classList.contains("active")) {
                 return link.textContent;
             }
         }
