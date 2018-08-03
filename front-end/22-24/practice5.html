@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="queue-input" type="text">
+<p>队列内容：<span id="queue-cont"></span></p>
+<button id="in-btn">入队</button>
+<button id="out-btn">出队</button>
+<button id="font-btn">打印队头元素内容</button>
+<button id="empty-btn">判断队列是否为空</button>
+
+<script>
+    let queue = ["apple", "pear"];
+    let queue_input = document.getElementById("queue-input");
+    let queue_cont = document.getElementById("queue-cont");
+
+    function displayQueue(queue) {
+        queue_cont.innerHTML = queue.join("->");
+    }
+
+    displayQueue(queue);
+
+    document.getElementById("in-btn").addEventListener("click", function () {
+        queue.unshift(queue_input.value);
+        displayQueue(queue);
+    });
+    document.getElementById("out-btn").addEventListener("click", function () {
+        queue.pop();
+        displayQueue(queue);
+    });
+    document.getElementById("font-btn").addEventListener("click", function () {
+        alert(queue[queue.length - 1]);
+    });
+    document.getElementById("empty-btn").addEventListener("click", function () {
+        alert(queue.length === 0);
+    });
+
+</script>
+</body>
+</html>

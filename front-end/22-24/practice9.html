@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    {
+        let arr = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+        arr.sort(function (a, b) {
+            return b - a;
+        });
+        console.log(arr);
+        arr.sort(function (a, b) {
+            return a - b;
+        });
+        console.log(arr);
+    }
+    {
+        let arr = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+        arr.sort(function (a, b) {
+            for (let i = 0; i < a.length && i < b.length; i++) {
+                let diff = a.codePointAt(i) - b.codePointAt(i);
+                if (diff !== 0) {
+                    return diff;
+                }
+            }
+            if (a.length > b.length) {
+                return a.codePointAt(b.length);
+            } else if (b.length > a.length) {
+                return -b.codePointAt(a.length);
+            }
+            return 0;
+        });
+        console.log(arr);
+        arr.sort(function (a, b) {
+            for (let i = 0; i < a.length && i < b.length; i++) {
+                let diff = b.codePointAt(i) - a.codePointAt(i);
+                if (diff !== 0) {
+                    return diff;
+                }
+            }
+            if (b.length > a.length) {
+                return b.codePointAt(a.length);
+            } else if (a.length > b.length) {
+                return -a.codePointAt(b.length);
+            }
+            return 0;
+        });
+        console.log(arr);
+    }
+    {
+        var arr = [[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]];
+        arr.sort(function (a, b) {
+            return b[1] - a[1];
+        });
+        console.log(arr);
+    }
+    {
+        var arr = [
+            {
+                id: 1,
+                name: 'candy',
+                value: 40
+            }, {
+                id: 2,
+                name: 'Simon',
+                value: 50
+            }, {
+                id: 3,
+                name: 'Tony',
+                value: 45
+            }, {
+                id: 4,
+                name: 'Annie',
+                value: 60
+            }
+        ];
+        arr.sort(function (a, b) {
+            return a.value - b.value;
+        });
+        console.log(arr);
+    }
+</script>
+</body>
+</html>
