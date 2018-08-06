@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="datetime"></p>
+<p id="datetime2"></p>
+<script>
+    let datetime = document.getElementById("datetime");
+    let datetime2 = document.getElementById("datetime2");
+
+    function getWhatDay(date) {
+        const weekday = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+        return weekday[date.getDay()];
+    }
+
+    function getWhatDay2(date) {
+        const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        return weekday[date.getDay()];
+    }
+
+    function fillStr(str, n, fill) {
+        if (typeof str !== "string" || str.length <= n) {
+            return str;
+        }
+        if (fill === undefined) {
+            fill = " ";
+        }
+        return str.concat(fill.repeat(n - str.length));
+    }
+
+    function getAMOrPM(date) {
+        let hour = date.getHours();
+        if (hour >= 0 && hour < 12) {
+            return "AM";
+        } else {
+            return "PM";
+        }
+    }
+
+    function formatDate(date) {
+        return date.getFullYear().toString() + "年" + fillStr(date.getMonth().toString(), 2, "0") + "月" + fillStr(date.getDate().toString(), 2, "0") + "日 " +
+            getWhatDay(date) + " " +
+            fillStr(date.getHours().toString(), 2, "0") + ":" +
+            fillStr(date.getMinutes().toString(), 2, "0") + ":" +
+            fillStr(date.getSeconds().toString(), 2, "0");
+    }
+
+    function formatDate2(date) {
+        return date.getFullYear().toString() + "-" + fillStr(date.getMonth().toString(), 2, "0") + "-" + fillStr(date.getDate().toString(), 2, "0") + " " +
+            getWhatDay2(date) + " " +
+            fillStr(date.getHours().toString(), 2, "0") + ":" +
+            fillStr(date.getMinutes().toString(), 2, "0") + ":" +
+            fillStr(date.getSeconds().toString(), 2, "0") + " " +
+            getAMOrPM(date);
+    }
+
+    setInterval(function () {
+        let now = new Date();
+        datetime.innerHTML = formatDate(now);
+        datetime2.innerHTML = formatDate2(now);
+    }, 1000);
+</script>
+</body>
+</html>

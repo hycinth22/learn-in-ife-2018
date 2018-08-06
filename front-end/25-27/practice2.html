@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="datetime"></p>
+<script>
+    let datetime = document.getElementById("datetime");
+
+    function getWhatDay(date) {
+        const weekday = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+        return weekday[date.getDay()];
+    }
+
+    function fillStr(str, n, fill) {
+        if (typeof str !== "string" || str.length <= n) {
+            return str;
+        }
+        if (fill === undefined) {
+            fill = " ";
+        }
+        return str.concat(fill.repeat(n - str.length));
+    }
+
+    function formatDate(date) {
+        return date.getFullYear().toString() + "年" + fillStr(date.getMonth().toString(), 2, "0") + "月" + fillStr(date.getDate().toString(), 2, "0") + "日 " +
+            getWhatDay(date) + " " +
+            fillStr(date.getHours().toString(), 2, "0") + ":" +
+            fillStr(date.getMinutes().toString(), 2, "0") + ":" +
+            fillStr(date.getSeconds().toString(), 2, "0");
+    }
+
+    setInterval(function () {
+        let now = new Date();
+        datetime.innerHTML = formatDate(now);
+    }, 1000);
+</script>
+</body>
+</html>
