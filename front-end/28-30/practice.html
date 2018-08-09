@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .email-sug {
+            display: inline-block;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .email-sug li {
+            border: 1px solid deepskyblue;;
+        }
+
+        .email-sug li.hover {
+            background-color: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <input id="email-input" type="text"><br>
+    <ul id="email-sug-wrapper" class="email-sug" data-select="0" data-len="0"></ul>
+</div>
+<script>
+    document.getElementById("email-input").focus();
+    document.querySelector(".wrapper").addEventListener("keydown", function (e) {
+        let keycode = e.which;
+        console.log("keydown", keycode);
+        let selectedIndex = getEmailListSelectedIndex();
+        let listLen = getEmailListLen();
+        if (keycode === 38 && selectedIndex > 0) {
+            // ↑
+            selectEmailListItem(selectedIndex - 1);
+        } else if (keycode === 40 && selectedIndex < listLen - 1) {
+            // ↓
+            selectEmailListItem(selectedIndex + 1);
+        } else if (keycode === 13) {
+            // Enter
+            console.log("Enter", selectedIndex);
+            applyEmailListItem(selectedIndex);
+        }
+    });
+    document.getElementById("email-input").addEventListener("input", function () {
+        let dom_sug = document.getElementById("email-sug-wrapper");
+        let input = getEmailInputPrefix();
+        if (input.length === 0) {
+            hiddenEmailList();
+        } else {
+            let list = generateEmailList(input, getEmailInputPostfix());
+            displayList(dom_sug, list);
+            showEmailList();
+        }
+    });
+    document.getElementById("email-sug-wrapper").addEventListener("change", function () {
+        console.log("change");
+    });
+    document.getElementById("email-sug-wrapper").addEventListener("click", function (e) {
+        let target = e.target;
+        if (target.tagName === "LI") {
+            let selectedIndex = target.getAttribute("data-index");
+            applyEmailListItem(selectedIndex);
+            hiddenEmailList();
+            document.getElementById("email-input").focus();
+            e.stopPropagation();
+        }
+    });
+    document.getElementById("email-sug-wrapper").addEventListener("mouseover", function (e) {
+        let target = e.target;
+        if (target.tagName === "LI") {
+            target.classList.add("hover");
+            document.getElementById("email-sug-wrapper").setAttribute("data-select", target.getAttribute("data-index"));
+            e.stopPropagation();
+        }
+    });
+    document.getElementById("email-sug-wrapper").addEventListener("mouseout", function (e) {
+        let target = e.target;
+        if (target.tagName === "LI") {
+            target.classList.remove("hover");
+            e.stopPropagation();
+        }
+    });
+
+    function setEmailInput(text) {
+        document.getElementById("email-input").value = text;
+    }
+
+    function getEmailInput() {
+        return document.getElementById("email-input").value.trim();
+    }
+
+    function getEmailInputPrefix() {
+        let input = getEmailInput();
+        let index = input.lastIndexOf("@");
+        if (index === -1) {
+            return input;
+        }
+        return input.slice(0, index);
+    }
+
+    function getEmailInputPostfix() {
+        let input = getEmailInput();
+        let index = input.lastIndexOf("@");
+        if (index === -1) {
+            return null;
+        }
+        return input.slice(index + 1);
+    }
+
+    function selectEmailListItem(selectedIndex) {
+        document.getElementById("email-sug-wrapper").setAttribute("data-select", selectedIndex.toString());
+        let items = document.getElementById("email-sug-wrapper").querySelectorAll("li");
+        for (let i = 0; i < items.length; i++) {
+            let item = items[i];
+            let index = parseInt(item.getAttribute("data-index"));
+            if (index === selectedIndex) {
+                item.classList.add("hover");
+            } else {
+                item.classList.remove("hover");
+            }
+        }
+    }
+
+    function showEmailList() {
+        document.getElementById("email-sug-wrapper").style.visibility = "visible";
+    }
+
+    function hiddenEmailList() {
+        document.getElementById("email-sug-wrapper").style.visibility = "hidden";
+    }
+
+    function getEmailListSelectedIndex() {
+        return parseInt(document.getElementById("email-sug-wrapper").getAttribute("data-select"));
+    }
+
+    function getEmailListLen() {
+        return parseInt(document.getElementById("email-sug-wrapper").getAttribute("data-len"));
+    }
+
+    function applyEmailListItem(index) {
+        document.getElementById("email-sug-wrapper").setAttribute("data-select", index.toString());
+        let selectedItem = document.getElementById("email-sug-wrapper").querySelector("li[data-index='" + index.toString() + "']");
+        let selected = selectedItem.innerText || selectedItem.textContent;
+        setEmailInput(selected);
+        hiddenEmailList();
+    }
+
+    function generateEmailList(prefix, postfixMatch) {
+        let result = [];
+        console.log(postfixMatch);
+        let postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+        if (postfixMatch !== null) {
+            postfixList = postfixList.filter(postfix => postfix.slice(0, postfixMatch.length) === postfixMatch);
+            console.info("postfix", postfixList);
+        }
+        postfixList.forEach(function (postfix) {
+            result.push(prefix + "@" + postfix);
+        });
+        return result;
+    }
+
+    function displayList(listDom, list) {
+        listDom.innerHTML = ""; // clear children
+        list.forEach(function (item, index) {
+            let li = document.createElement("li");
+            li.setAttribute("data-index", index.toString());
+            li.innerHTML = htmlEncode(item);
+            listDom.appendChild(li);
+        });
+        listDom.setAttribute("data-select", "0");
+        listDom.setAttribute("data-len", list.length.toString());
+        selectEmailListItem(0);
+    }
+
+
+    function htmlEncode(html) {
+        let temp = document.createElement("div");
+        if (temp.textContent !== undefined) {
+            temp.textContent = html;
+        } else {
+            temp.innerText = html;
+        }
+        return temp.innerHTML;
+    }
+</script>
+</body>
+</html>
